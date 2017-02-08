@@ -40,6 +40,7 @@ class NightWriter
       braille = LETTERS.fetch(letter)
       new_line << braille[position]
       end
+      # binding.pry
     new_line
   end  
 

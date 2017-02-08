@@ -3,7 +3,6 @@ require './lib/letters'
 
 class NightReader
   attr_reader :file_reader
-
   def initialize
     @reader = FileReader.new
   end
@@ -18,11 +17,20 @@ class NightReader
 
   # end
 
-  def prepares_braille_input_for_english_translation(input)
-    input.gsub("\n", "")
+  def split_array_at_new_lines(input)
+    input.split("\n")
+    
   end
 
-
+  def scan_input(input)
+    input.map do |line|
+      line.scan(/../)
+    end
+  end
+  
+  # def zip_input(input)
+  #   scan_input[0].zip(scan_input[1], scan_input[2])
+  # end
 
 end
 
