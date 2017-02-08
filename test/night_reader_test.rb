@@ -4,12 +4,21 @@ require './lib/night_reader'
 
 class TestNightReader < Minitest::Test
 
-  def test_prepares_braille_input_for_english_translation
-    night_reader = NightReader.new
-    result = night_reader.prepares_braille_input_for_english_translation("000.00\n.0.000\n..0...")
-    assert_equal "000.00.0.000..0...", result
-  end
 
+
+# def test_opens_file_and_reads_content_as_one_long_string
+# end
+#
+# def test_segments_input_string_to_braille_letters-aka-the value in the LETTERS hash
+# end
+#
+# def test_finds_each_value_in_LETTERS_and_replaces_with_key
+
+  def  test_braille_to_text
+    night_reader = NightReader.new
+    result_1 = night_reader.braille_to_text("000.00\n.0.000\n..0...")
+    assert_equal result_1, "dog"
+  end
 
 
 
