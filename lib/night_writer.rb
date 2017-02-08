@@ -1,6 +1,5 @@
-require './file_reader'
-require './letters'
-require 'pry'
+require_relative 'file_reader'
+require_relative 'letters'
 
 class NightWriter
   attr_reader :file_reader
