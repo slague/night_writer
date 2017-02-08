@@ -25,5 +25,5 @@ class TestNightWriter < Minitest::Test
     result_1 = night_writer.encode_input_to_braille("dog")
     assert_equal result_1, "000.00\n.0.000\n..0..."
   end
-
+  
 end
