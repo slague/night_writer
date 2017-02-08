@@ -1,5 +1,6 @@
 require './file_reader'
 require './letters'
+require 'pry'
 
 class NightWriter
   attr_reader :file_reader
@@ -13,6 +14,8 @@ class NightWriter
     char_count = text.length
     braille_text = encode_input_to_braille(text)
 
+
+
    File.write(ARGV[1], braille_text)
    p "Created '#{ARGV[1]}' containing #{char_count} characters"
 
@@ -24,6 +27,7 @@ class NightWriter
     line_2 = create_line(ready_for_translation, 1)
     line_3 = create_line(ready_for_translation, 2)
     "#{line_1}\n#{line_2}\n#{line_3}"
+  
   end
 
   def prepares_input_for_translation(input)
@@ -34,7 +38,7 @@ class NightWriter
     new_line = ""
     ready_for_translation.each do |letter|
       braille = LETTERS.fetch(letter)
-      new_line.concat(braille.fetch(position))
+      new_line << braille[position]
       end
     new_line
   end  
