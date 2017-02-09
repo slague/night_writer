@@ -12,7 +12,7 @@ class NightReader
   def decode_file_to_english
     
     braille = @reader.open_the_file
-    char_count = braille.length
+    char_count = braille.chomp.length
     braille_out = zip_input(scan_input(split_array_at_new_lines(braille)))
     message_text = characters_equal_english_letter(braille_out)
 

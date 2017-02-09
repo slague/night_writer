@@ -11,7 +11,7 @@ class NightWriter
 
   def encode_file_to_braille
     text = @reader.open_the_file
-    char_count = text.length
+    char_count = text.chomp.length
     braille_text = encode_input_to_braille(text)
 
    File.write(ARGV[1], braille_text)
