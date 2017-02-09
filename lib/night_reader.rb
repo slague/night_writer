@@ -10,6 +10,7 @@ class NightReader
   end
 
   def decode_file_to_english
+    
     braille = @reader.open_the_file
     char_count = braille.length
     braille_out = zip_input(scan_input(split_array_at_new_lines(braille)))
@@ -38,14 +39,13 @@ class NightReader
 
   def characters_equal_english_letter(zipped_input)
     new_line = ""
-    #binding.pry
     zipped_input.each do |character|
+      # binding.pry
       english = LETTERS.key(character)
-      new_line << english
+      new_line << english.to_s
     end
     new_line
   end
-
 end
 
 
