@@ -4,23 +4,28 @@ require './lib/night_reader'
 
 class TestNightReader < Minitest::Test
 
-
-
-# def test_opens_file_and_reads_content_as_one_long_string
-# end
-#
-# def test_segments_input_string_to_braille_letters-aka-the value in the LETTERS hash
-# end
-#
-# def test_finds_each_value_in_LETTERS_and_replaces_with_key
-
-  def  test_braille_to_text
+  def test_split_array_at_new_lines
     night_reader = NightReader.new
-    result_1 = night_reader.braille_to_text("000.00\n.0.000\n..0...")
-    assert_equal result_1, "dog"
+
+    assert_equal ["000.00", ".0.000", "..0..."], night_reader.split_array_at_new_lines("000.00\n.0.000\n..0...")
   end
 
+  def test_scan_input
+    night_reader = NightReader.new
 
+    assert_equal [["00","0.","00"], [".0",".0","00"], ["..","0.",".."]], night_reader.scan_input(["000.00", ".0.000", "..0..."])
+  end
 
+  def test_zip_input
+    night_reader = NightReader.new
+
+    assert_equal [["00", ".0", ".."], ["0.", ".0", "0."], ["00", "00", ".."]], night_reader.zip_input([["00","0.","00"], [".0",".0","00"], ["..","0.",".."]])
+  end
+
+  def test_characters_equal_english_letter
+    night_reader = NightReader.new
+
+    assert_equal "dog", night_reader.characters_equal_english_letter([["00", ".0", ".."], ["0.", ".0", "0."], ["00", "00", ".."]])
+  end
 
 end

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Steph is awesome. Steph is awesome. Steph is awesome. Steph is awesome. Steph is awesome. Steph is awesome. Steph is awesome. Steph is awesome.
+=======
+brett run
+>>>>>>> 6bd299220253c644f3a857de5ba1675a806d0f2b
