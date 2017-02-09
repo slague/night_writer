@@ -33,8 +33,12 @@ class NightReader
   end
 
   def zip_input(scanned_braille)
-    zipped_input = scanned_braille[0].zip(scanned_braille[1], scanned_braille[2])
-    zipped_input
+    zipped_input = []
+    until scanned_braille.empty? do
+    zipped_input << scanned_braille[0].zip(scanned_braille[1], scanned_braille[2])
+    scanned_braille.shift(3)
+    end
+    zipped_input.flatten(1)
   end
 
   def characters_equal_english_letter(zipped_input)
